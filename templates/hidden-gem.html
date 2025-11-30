@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KSM Secret Nest</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+  <div class="bg-white rounded-2xl shadow-xl p-6 max-w-md text-center border border-gray-200">
+    <h1 class="text-xl font-semibold text-gray-800 mb-4">Congrats! you found a secret to KSM nest</h1>
+    <div class="relative">
+      <img id="carousel-img" src="/static/image/ksm1.jpeg" alt="KSM Nest" class="rounded-xl shadow-md border border-gray-300 w-full" />
+      <div class="flex justify-between mt-4">
+        <button onclick="prevImg()" class="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300">Prev</button>
+        <button onclick="nextImg()" class="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300">Next</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    const images = [
+      "/static/image/ksm1.jpeg",
+      "/static/image/ksm2.jpeg"
+    ];
+    let index = 0;
+
+    function updateImg() {
+      document.getElementById("carousel-img").src = images[index];
+    }
+
+    function prevImg() {
+      index = (index - 1 + images.length) % images.length;
+      updateImg();
+    }
+
+    function nextImg() {
+      index = (index + 1) % images.length;
+      updateImg();
+    }
+  </script>
+</body>
+</html>
