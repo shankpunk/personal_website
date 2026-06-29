@@ -356,12 +356,25 @@ h1 {
   z-index: 2;
 }
 
+.slide::before {
+  content: "";
+  position: absolute;
+  inset: -26px;
+  background-image: var(--photo);
+  background-size: cover;
+  background-position: center;
+  filter: blur(26px) saturate(1.08) brightness(0.68);
+  transform: scale(1.08);
+  opacity: 0.86;
+}
+
 .slide img {
   display: block;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
-  transform: scale(1.02);
+  transform: scale(0.985);
   will-change: transform;
+  filter: drop-shadow(0 22px 34px rgba(0, 0, 0, 0.36));
 }
 
 .slide.active img {
@@ -472,8 +485,8 @@ h1 {
 }
 
 @keyframes kenBurns {
-  from { transform: scale(1.02) translate3d(0, 0, 0); }
-  to { transform: scale(1.12) translate3d(1.5%, -1.2%, 0); }
+  from { transform: scale(0.985) translate3d(0, 0, 0); }
+  to { transform: scale(1.035) translate3d(0.6%, -0.4%, 0); }
 }
 
 @keyframes indicatorFill {
